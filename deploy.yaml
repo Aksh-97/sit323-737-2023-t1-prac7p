@@ -1,0 +1,21 @@
+Apiversion: apps/v1
+kind: service_deployment
+metadata: 
+        name: deploy_microservice
+spec:
+    selector:
+    matchlabels:
+    app: service_deployment
+    replicas:1
+  template:
+  metadata:
+   labels:
+   app: service_deployment
+
+     spec:
+     containers:
+     name: deploy_microservice
+     image:
+     ports:
+     -containerport: 8080
+     imagePullPolicy: IfnotPresent
